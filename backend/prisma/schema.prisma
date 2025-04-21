@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users_ws {
+  id_ws Int @id @default(autoincrement())
+  fullname_ws String
+  email_ws String @unique
+  password_ws String
+  pet_ws Pets_ws[]
+}
+
+model Pets_ws {
+  id_ws Int @id @default(autoincrement())
+  photo_ws String
+  estado_ws Estados_ws @default(disponible)
+  raceId_ws Int
+  categoryId_ws Int
+  genderId_ws Int
+  userId_ws Int
+
+  race_ws Races_ws @relation(fields: [raceId_ws], references: [id_ws])
+  category_ws Categories_ws @relation(fields: [categoryId_ws], references: [id_ws])
+  gender_ws Genders_ws @relation(fields: [genderId_ws],references: [id_ws])
+  user_ws Users_ws @relation(fields: [userId_ws], references: [id_ws])
+
+}
+
+enum Estados_ws {
+  disponible
+  adoptado
+}
+
+model Races_ws {
+  id_ws Int @id @default(autoincrement())
+  name_ws String
+  pet_ws Pets_ws[]
+}
+
+model Categories_ws {
+  id_ws Int @id @default(autoincrement())
+  name_ws String 
+  pet_ws Pets_ws[]
+}
+
+model Genders_ws {
+  id_ws Int @id @default(autoincrement())
+  name_ws String
+  pet_ws Pets_ws[]
+}
