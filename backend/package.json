@@ -13,10 +13,15 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.6.0",
+<<<<<<< HEAD
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+=======
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+>>>>>>> 170d98bc59573b9900f325abfaed09c95539d712
     "prisma": "^6.6.0"
   },
   "devDependencies": {

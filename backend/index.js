@@ -3,12 +3,14 @@ import bodyParser from "body-parser";
 import autenticacionRouter_ws from "./src/routers/autenticacionRouter_ws.js";
 import userRouter_ws from "./src/routers/userRouter_ws.js";
 
+
 const app = express(); 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(autenticacionRouter_ws);
 app.use(userRouter_ws);
+
 
 
 app.listen(3000, ()=>{
