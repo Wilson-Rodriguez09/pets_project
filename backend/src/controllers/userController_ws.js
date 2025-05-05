@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export const getUser = async (req, res)=>{
     try{
         const users_ws = await prisma.users_ws.findMany();
-        if(users_ws.length > 0){
+        if(users_ws){
             res.status(200).json(users_ws);
         }else{
             res.status(404).json({msg: "Error al obtener usuarios"});
@@ -44,7 +44,12 @@ export const createUser = async(req, res)=>{
             data: {fullname_ws, email_ws, password_ws: hashPassword},
         });
 
-        res.status(200).json({msg: "Usuario registrado correctamente"});
+        if(users_ws){
+            res.status(200).json({msg: "User registrado correctamente", user: users_ws})
+        } else{
+            res.status(404).json({msg: "Error al registrar un user"})
+        }
+        
     }catch (error){
         console.error(error);
         res.status(500).json({msg: "Error en el servidor"});
@@ -66,7 +71,12 @@ export const updateUserId = async(req, res)=>{
           data: updateData,
         });
 
-        res.status(200).json({ msg: "usuario actualizado correctamente" });
+        if(users_ws){
+            res.status(200).json({msg: "User actualizado correctamente", user: users_ws})
+        }else{
+            res.status(404).json({msg: "Error al actulizar user"})
+        }
+        
     } catch (error) {
         console.error(error);
         res.status(500).json({ msg: "Error en el servidor" });
