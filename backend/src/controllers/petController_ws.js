@@ -20,10 +20,10 @@ import multer from 'multer';
     try{
         const pets_ws = await prisma.pets_ws.findMany({
             include: {
-                raceId_ws: true,
-                categoryId_ws: true,
-                genderId_ws: true,
-                userId_ws: true,
+                race_ws: true,
+                category_ws: true,
+                gender_ws: true,
+                user_ws: true,
             }
         });
         if(pets_ws){
@@ -43,10 +43,10 @@ import multer from 'multer';
         const pets_ws = await prisma.pets_ws.findUnique({
             where: {id_ws: parseInt(id_ws)},
             include: {
-                raceId_ws: true,
-                categoryId_ws: true,
-                genderId_ws: true,
-                userId_ws: true,
+                race_ws: true,
+                category_ws: true,
+                gender_ws: true,
+                user_ws: true,
             }
         });
         
@@ -60,27 +60,44 @@ import multer from 'multer';
     }
  };
 
- export const createPet = async (req, res)=>{
-    try{
-        const {raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws} = req.body;
-        if(!req.file){
-            return res.status(400).json({msg: "Imagen obligatoria"})
-        }
-        const photo_ws = req.file.filename;
-        const pets_ws = await prisma.pets_ws.create({
-            data: {raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws, photo_ws},
-        });
-
-        if(pets_ws){
-            res.status(200).json({msg: "Pet registrado correctamente", pet: pets_ws})
-        }else {
-            res.status(404).json({msg: "Error al registrar pet"})
-        }
-    } catch (error){
-        console.error(error);
-        res.status(500).json({msg: "Error en el servidor"})
+ export const createPet = async (req, res) => {
+    try {
+      const { raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws } = req.body;
+  
+      if (!req.file) {
+        return res.status(400).json({ msg: "Imagen obligatoria" });
+      }
+  
+      // Validar y convertir tipos
+      const raceId = Number(raceId_ws);
+      const categoryId = Number(categoryId_ws);
+      const genderId = Number(genderId_ws);
+      const userId = Number(userId_ws);
+  
+      // Validación básica
+      if ([raceId, categoryId, genderId, userId].some(isNaN)) {
+        return res.status(400).json({ msg: "IDs inválidos" });
+      }
+  
+      const photo_ws = req.file.filename;
+  
+      const pet = await prisma.pets_ws.create({
+        data: {
+          raceId_ws: raceId,
+          estado_ws,
+          categoryId_ws: categoryId,
+          genderId_ws: genderId,
+          userId_ws: userId,
+          photo_ws
+        },
+      });
+  
+      res.status(200).json({ msg: "Pet registrado correctamente", pet });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: "Error en el servidor" });
     }
- };
+  };
 
  export const updatePetId = async (req, res)=>{
     try{
