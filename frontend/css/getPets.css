@@ -1,0 +1,93 @@
+body {
+    background: #003055;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .panel {
+    background-color: #1f3b66;
+    border-radius: 20px;
+    width: 50vh;
+    height: 100vh;
+    color: white;
+  }
+  
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .add-btn {
+    width: 100%;
+    background-color: #45c18a;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .pet-card {
+    display: flex;
+    align-items: center;
+    background-color: #e6eaf1;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 12px;
+    color: #1f3b66;
+  }
+  
+  .pet-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .pet-info {
+    flex-grow: 1;
+  }
+  
+  .pet-info span {
+    display: block;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .icon {
+    background: #274c77;
+    border: none;
+    color: white;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .icon.delete {
+    background: #e63946;
+  }
+
+  

@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getRace = async(req, res)=>{
+export const getRace_ws = async(req, res)=>{
     try{
         const races_ws = await prisma.races_ws.findMany();
         if(races_ws) {
@@ -16,7 +16,7 @@ export const getRace = async(req, res)=>{
     }
 };
 
-export const getRaceId = async (req, res) =>{
+export const getRaceId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         const races_ws = await prisma.races_ws.findUnique({
@@ -32,7 +32,7 @@ export const getRaceId = async (req, res) =>{
     }
 };
 
-export const createRace = async (req, res) => {
+export const createRace_ws = async (req, res) => {
     try{
         const {name_ws} = req.body;
         const races_ws = await prisma.races_ws.create({
@@ -50,7 +50,7 @@ export const createRace = async (req, res) => {
     }
 };
 
-export const updateRaceId = async (req, res) => {
+export const updateRaceId_ws = async (req, res) => {
     try{
         const id_ws = parseInt(req.params.id_ws);
         const {name_ws} = req.body;
@@ -71,7 +71,7 @@ export const updateRaceId = async (req, res) => {
     } 
 };
 
-export const deleteRaceId = async (req, res) =>{
+export const deleteRaceId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         await prisma.races_ws.delete({

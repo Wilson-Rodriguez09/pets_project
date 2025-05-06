@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getGender = async(req, res)=>{
+export const getGender_ws = async(req, res)=>{
     try{
         const genders_ws = await prisma.genders_ws.findMany();
         if(genders_ws) {
@@ -16,7 +16,7 @@ export const getGender = async(req, res)=>{
     }
 };
 
-export const getGenderId = async (req, res) =>{
+export const getGenderId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         const genders_ws = await prisma.genders_ws.findUnique({
@@ -32,7 +32,7 @@ export const getGenderId = async (req, res) =>{
     }
 };
 
-export const createGender = async (req, res) => {
+export const createGender_ws = async (req, res) => {
     try{
         const {name_ws} = req.body;
         const genders_ws = await prisma.genders_ws.create({
@@ -50,7 +50,7 @@ export const createGender = async (req, res) => {
     }
 };
 
-export const updateGenderId = async (req, res) => {
+export const updateGenderId_ws = async (req, res) => {
     try{
         const id_ws = parseInt(req.params.id_ws);
         const {name_ws} = req.body;
@@ -71,7 +71,7 @@ export const updateGenderId = async (req, res) => {
     } 
 };
 
-export const deleteGenderId = async (req, res) =>{
+export const deleteGenderId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         await prisma.genders_ws.delete({

@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
-export const getUser = async (req, res)=>{
+export const getUser_ws = async (req, res)=>{
     try{
         const users_ws = await prisma.users_ws.findMany();
         if(users_ws){
@@ -17,7 +17,7 @@ export const getUser = async (req, res)=>{
     }
 };
 
-export const getUserId = async (req, res)=>{
+export const getUserId_ws = async (req, res)=>{
     try{
         const {id_ws} = req.params;
         const users_ws = await prisma.users_ws.findUnique({
@@ -35,7 +35,7 @@ export const getUserId = async (req, res)=>{
     }
 };
 
-export const createUser = async(req, res)=>{
+export const createUser_ws = async(req, res)=>{
     try{
         const {fullname_ws, email_ws, password_ws} = req.body;
         const salt = await bcrypt.genSalt(10);
@@ -56,7 +56,7 @@ export const createUser = async(req, res)=>{
     }
 };
 
-export const updateUserId = async(req, res)=>{
+export const updateUserId_ws = async(req, res)=>{
     try{
         const id_ws = parseInt(req.params.id_ws);
         const {fullname_ws, email_ws, password_ws} = req.body;
@@ -83,7 +83,7 @@ export const updateUserId = async(req, res)=>{
     } 
 };
 
-export const deleteUserId = async (req, res) => {
+export const deleteUserId_ws = async (req, res) => {
     try {
       const { id_ws } = req.params;
       await prisma.users_ws.delete({

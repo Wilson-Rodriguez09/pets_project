@@ -16,7 +16,7 @@ import multer from 'multer';
  export const CargarImg=upload.single('photo_ws')
 
 
- export const getPet = async (req, res)=>{
+ export const getPet_ws = async (req, res)=>{
     try{
         const pets_ws = await prisma.pets_ws.findMany({
             include: {
@@ -37,7 +37,7 @@ import multer from 'multer';
     }
  };
 
- export const getPetId = async (req, res)=>{
+ export const getPetId_ws = async (req, res)=>{
     try{
         const {id_ws} = req.params;
         const pets_ws = await prisma.pets_ws.findUnique({
@@ -60,7 +60,7 @@ import multer from 'multer';
     }
  };
 
- export const createPet = async (req, res) => {
+ export const createPet_ws = async (req, res) => {
     try {
       const { raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws } = req.body;
   
@@ -68,13 +68,11 @@ import multer from 'multer';
         return res.status(400).json({ msg: "Imagen obligatoria" });
       }
   
-      // Validar y convertir tipos
       const raceId = Number(raceId_ws);
       const categoryId = Number(categoryId_ws);
       const genderId = Number(genderId_ws);
       const userId = Number(userId_ws);
   
-      // Validación básica
       if ([raceId, categoryId, genderId, userId].some(isNaN)) {
         return res.status(400).json({ msg: "IDs inválidos" });
       }
@@ -99,7 +97,7 @@ import multer from 'multer';
     }
   };
 
- export const updatePetId = async (req, res)=>{
+ export const updatePetId_ws = async (req, res)=>{
     try{
         const id_ws = parseInt(req.params.id_ws);
         const {raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws} = req.body;
@@ -123,7 +121,7 @@ import multer from 'multer';
     } 
  }
 
- export const deletePetId = async (req, res) =>{
+ export const deletePetId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         await prisma.pets_ws.delete({

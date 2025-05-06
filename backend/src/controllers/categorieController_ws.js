@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getCategorie = async(req, res)=>{
+export const getCategorie_ws = async(req, res)=>{
     try{
         const categories_ws = await prisma.categories_ws.findMany();
         if(categories_ws) {
@@ -16,7 +16,7 @@ export const getCategorie = async(req, res)=>{
     }
 };
 
-export const getCategorieId = async (req, res) =>{
+export const getCategorieId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         const categories_ws = await prisma.categories_ws.findUnique({
@@ -32,7 +32,7 @@ export const getCategorieId = async (req, res) =>{
     }
 };
 
-export const createCategorie = async (req, res) => {
+export const createCategorie_ws = async (req, res) => {
     try{
         const {name_ws} = req.body;
         const categories_ws = await prisma.categories_ws.create({
@@ -50,7 +50,7 @@ export const createCategorie = async (req, res) => {
     }
 };
 
-export const updateCategorieId = async (req, res) => {
+export const updateCategorieId_ws = async (req, res) => {
     try{
         const id_ws = parseInt(req.params.id_ws);
         const {name_ws} = req.body;
@@ -71,7 +71,7 @@ export const updateCategorieId = async (req, res) => {
     } 
 };
 
-export const deleteCategorieId = async (req, res) =>{
+export const deleteCategorieId_ws = async (req, res) =>{
     try{
         const {id_ws} = req.params;
         await prisma.categories_ws.delete({

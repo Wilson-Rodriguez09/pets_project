@@ -7,11 +7,11 @@ dotenv.config();
 const prisma = new PrismaClient();
 const SECRET_KEY = process.env.JWT_SECRET || "soloYoSeEstoVato";
 
-export const loginUser = async (req, res) => {
+export const loginUser_ws = async (req, res) => {
   try {
-    const { fullname_ws, email_ws, password_ws } = req.body;
-    if (!fullname_ws || !email_ws || !password_ws){
-        return res.status(400).json({message: "fullname, email y password son requeridos"})
+    const { email_ws, password_ws } = req.body;
+    if (!email_ws || !password_ws){
+        return res.status(400).json({message: "email y password son requeridos"})
     }
     const user = await prisma.users_ws.findFirst({
       where: { email_ws },
@@ -27,7 +27,7 @@ export const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id_ws: user.id_ws, fullname_ws: user.fullname_ws },
+      { id_ws: user.id_ws, email_ws: user.email_ws },
       SECRET_KEY,
       { expiresIn: "2h" }
     );
@@ -40,7 +40,7 @@ export const loginUser = async (req, res) => {
 };
 
 
-export const validarToken = (req, res, next) => {
+export const validarToken_ws = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token) {
     return res.status(401).json({ msg: "Acceso denegado. No hay token." });

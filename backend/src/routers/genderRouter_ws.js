@@ -1,14 +1,14 @@
 import { Router } from 'express';
-import { createGender, deleteGenderId, getGender, getGenderId, updateGenderId } from '../controllers/genderController_ws.js';
-import { validarToken } from '../controllers/autenticacionController_ws.js';
+import { createGender_ws, deleteGenderId_ws, getGender_ws, getGenderId_ws, updateGenderId_ws } from '../controllers/genderController_ws.js';
+import { validarToken_ws } from '../controllers/autenticacionController_ws.js';
 
 
-const router = Router();
+const router_ws = Router();
 
-router.get("/genders",validarToken,getGender);
-router.get("/genders/:id_ws",validarToken,getGenderId);
-router.post("/genders",validarToken,createGender);
-router.put("/genders/:id_ws",validarToken,updateGenderId);
-router.delete("/genders/:id_ws",validarToken,deleteGenderId);
+router_ws.get("/genders_ws",validarToken_ws,getGender_ws);
+router_ws.get("/genders_ws/:id_ws",validarToken_ws,getGenderId_ws);
+router_ws.post("/genders_ws",validarToken_ws,createGender_ws);
+router_ws.put("/genders_ws/:id_ws",validarToken_ws,updateGenderId_ws);
+router_ws.delete("/genders_ws/:id_ws",validarToken_ws,deleteGenderId_ws);
 
-export default router;
+export default router_ws;
