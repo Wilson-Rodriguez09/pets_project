@@ -6,43 +6,31 @@ body {
     padding: 40px;
   }
   
-  .panel {
-    background-color: #1f3b66;
+  .container {
+    background-color: #003055;
     border-radius: 20px;
     width: 50vh;
     height: 100vh;
+    padding: 20px;
     color: white;
   }
   
-  .panel-header {
+  .c-1-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 15px;
-    text-align: center;
+    padding: 5%;
   }
   
-  .close-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .add-btn {
-    width: 100%;
-    background-color: #45c18a;
-    border: none;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
-    font-weight: bold;
+  .c-1-2 {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
-    cursor: pointer;
   }
+  
   
   .pet-card {
     display: flex;
@@ -72,22 +60,25 @@ body {
     color: #666;
   }
   
-  .actions {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .icon {
+  .actions button {
     background: #274c77;
     border: none;
-    color: white;
-    padding: 6px;
     border-radius: 50%;
+    padding: 5px;
     cursor: pointer;
   }
-  
-  .icon.delete {
-    background: #e63946;
-  }
 
+  .actions .ver{
+    height: 20vh;
+    width: 20vh;
+  }
+  
+  .actions .delete {
+    background-color: #e63946;
+  }
+  
+  .actions img {
+    width: 16px;
+    height: 16px;
+  }
   

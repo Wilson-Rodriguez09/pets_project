@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administrar Mascotas</title>
-  <link rel="stylesheet" href="../css/getPets.css" />
+  <link rel="stylesheet" href="../css/getPets.css">
 </head>
 <body>
-  <div class="panel">
-    <div class="panel-header">
+  <div class="container">
+    <div class="c-1-1">
       <span>Administrar Mascotas</span>
-      <button class="close-btn">✕</button>
+      <a href="login.html">
+        <img src="../img/btn-close.svg" alt="Cerrar">
+      </a>
     </div>
 
-   <a href="createPets.html">
-    <img src="../img/btn-add.svg" alt="">
-   </a>
+    <div class="c-1-2">
+      <a href="createPets.html">
+        <img src="../img/btn-add.svg" alt="Adicionar">
+      </a>
+    </div>
 
+    <!-- Tarjetas de mascotas -->
     <div class="pet-card">
-      <img src="img/perro1.png" alt="Karsten">
+      <img src="../img/photo-sm-1.svg" alt="Karsten">
       <div class="pet-info">
         <strong>karsten</strong>
         <span>Bulldog</span>
       </div>
       <div class="actions">
-        <button class="icon">🔍</button>
-        <button class="icon">✏️</button>
-        <button class="icon delete">🗑️</button>
+        <a href="readPets.html"><img src="../img/btn-show.svg" alt="Ver"></button></a>
+        <a href="updatePets.html"><img src="../img/btn-edit.svg" alt="Editar"></button></a>
+        <a href="getPets.html"><img src="../img/btn-delete.svg" alt="delete"></button></a>
       </div>
     </div>
 
-    <!-- Puedes duplicar pet-card para más mascotas -->
+    <!-- Repite este bloque por cada mascota -->
+    <!-- ... -->
+
   </div>
 </body>
-</html
+</html>
