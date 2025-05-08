@@ -1,84 +1,53 @@
-body {
-    background: #003055;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-  }
-  
-  .container {
-    background-color: #003055;
-    border-radius: 20px;
-    width: 50vh;
-    height: 100vh;
-    padding: 20px;
-    color: white;
-  }
-  
-  .c-1-1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding: 5%;
-  }
-  
-  .c-1-2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  
-  .pet-card {
-    display: flex;
-    align-items: center;
-    background-color: #e6eaf1;
-    border-radius: 15px;
-    padding: 10px;
-    margin-bottom: 12px;
-    color: #1f3b66;
-  }
-  
-  .pet-card img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-  }
-  
-  .pet-info {
-    flex-grow: 1;
-  }
-  
-  .pet-info span {
-    display: block;
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .actions button {
-    background: #274c77;
-    border: none;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-  }
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
 
-  .actions .ver{
-    height: 20vh;
-    width: 20vh;
-  }
-  
-  .actions .delete {
-    background-color: #e63946;
-  }
-  
-  .actions img {
-    width: 16px;
-    height: 16px;
-  }
-  
+body, html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container-list {
+  height: 100vh;
+  width: 50vh;
+  background-color: #003055;
+  border-radius: 3%;
+}
+
+.header {
+  margin: 5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  position: absolute;
+  right: 0.5rem;
+  top: 0rem;
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.header span {
+  margin: 2%;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.list-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+}
+
+.list-content img {
+  max-width: 100%;
+  height: auto;
+}
