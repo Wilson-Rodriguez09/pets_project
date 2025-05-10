@@ -23,7 +23,7 @@ model Users_ws {
 
 model Pets_ws {
   id_ws Int @id @default(autoincrement())
-    name_ws String?
+  name_ws String?
   photo_ws String
   estado_ws Estados_ws @default(disponible)
   raceId_ws Int

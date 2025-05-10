@@ -5,11 +5,11 @@ import { createRace_ws, deleteRaceId_ws, getRace_ws, getRaceId_ws, updateRaceId_
 
 const router_ws = Router();
 
-router_ws.get("/races_ws",validarToken_ws,getRace_ws);
-router_ws.get("/races_ws/:id_ws",validarToken_ws, getRaceId_ws);
-router_ws.post("/races_ws", validarToken_ws,createRace_ws);
-router_ws.put("/races_ws",validarToken_ws,updateRaceId_ws);
-router_ws.delete("/races_ws",validarToken_ws,deleteRaceId_ws);
+router_ws.get("/races_ws",getRace_ws);
+router_ws.get("/races_ws/:id_ws", getRaceId_ws);
+router_ws.post("/races_ws",createRace_ws);
+router_ws.put("/races_ws",updateRaceId_ws);
+router_ws.delete("/races_ws",deleteRaceId_ws);
 
 
 export default router_ws;

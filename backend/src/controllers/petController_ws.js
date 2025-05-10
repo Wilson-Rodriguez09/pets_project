@@ -68,13 +68,12 @@ import multer from 'multer';
         return res.status(400).json({ msg: "Imagen obligatoria" });
       }
       
-      const name = String(name_ws);
       const raceId = Number(raceId_ws);
       const categoryId = Number(categoryId_ws);
       const genderId = Number(genderId_ws);
       const userId = Number(userId_ws);
   
-      if ([name, raceId, categoryId, genderId, userId].some(isNaN)) {
+      if ([raceId, categoryId, genderId, userId].some(isNaN)){
         return res.status(400).json({ msg: "IDs inválidos" });
       }
   
@@ -82,7 +81,7 @@ import multer from 'multer';
   
       const pet = await prisma.pets_ws.create({
         data: {
-          name_ws: name,
+          name_ws: name_ws,
           raceId_ws: raceId,
           estado_ws,
           categoryId_ws: categoryId,

@@ -5,10 +5,10 @@ import { CargarImg, createPet_ws, deletePetId_ws, getPet_ws, getPetId_ws, update
 
 const router_ws = Router();
 
-router_ws.post("/pets_ws",validarToken_ws,CargarImg,createPet_ws);
-router_ws.get("/pets_ws",validarToken_ws,getPet_ws);
-router_ws.get("/pets_ws/:id_ws",validarToken_ws, getPetId_ws);
-router_ws.put("/pets_Ws/:id_ws",validarToken_ws,CargarImg,updatePetId_ws);
-router_ws.delete("/pets_ws/:id_ws",validarToken_ws, deletePetId_ws);
+router_ws.post("/pets_ws",CargarImg,createPet_ws);
+router_ws.get("/pets_ws",getPet_ws);
+router_ws.get("/pets_ws/:id_ws", getPetId_ws);
+router_ws.put("/pets_Ws/:id_ws",CargarImg,updatePetId_ws);
+router_ws.delete("/pets_ws/:id_ws", deletePetId_ws);
 
 export default router_ws;
