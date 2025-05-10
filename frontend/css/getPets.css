@@ -14,6 +14,7 @@ body, html {
 .container-list {
   height: 100vh;
   width: 50vh;
+  max-width: 100%;
   background-color: #003055;
   border-radius: 3%;
 }
@@ -23,7 +24,6 @@ body, html {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .header img {
@@ -41,8 +41,8 @@ body, html {
 }
 
 .list-content {
-  display: flex;
-  justify-content: center;
+  display: flex;  
+  flex-direction: column;
   align-items: center;
   padding: 10%;
 }
@@ -50,4 +50,65 @@ body, html {
 .list-content img {
   max-width: 100%;
   height: auto;
+}
+
+button {
+  background-color: #003055;
+  border:  none;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: rgb(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 1%;
+  color: #000;
+  width: 100%;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card-info span {
+  font-size: 14px;
+  color: gray;
+}
+
+.card-actions {
+  display: flex;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.lista-mascotas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.action-icon {
+  width: -20rem; /* Tamaño pequeño para las imágenes SVG */
+  height: -1rem; /* Tamaño pequeño para las imágenes SVG */
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-add{
+  margin-bottom: 4%;
 }

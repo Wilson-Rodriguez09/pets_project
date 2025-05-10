@@ -7,10 +7,13 @@ import petRouter_ws from "./src/routers/petRouter_ws.js";
 import raceRouter_ws from "./src/routers/raceRouter_ws.js";
 import genderRouter_ws from "./src/routers/genderRouter_ws.js";
 import categorieRouter_ws from "./src/routers/categorieRouter_ws.js";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express(); 
 app.use(cors());
-
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(autenticacionRouter_ws);
