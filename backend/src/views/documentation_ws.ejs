@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentacion de la API REST de mascotas</title>
+</head>
+<body>
+    <h1 class="text-center">Docuementacion de api</h1>
+    <table class="table table-striped">
+        <tr><td><b>Autenticacion</b></td></tr>
+        <tr><td>Número</td><td>1</td></tr>
+        <tr><td>Nombre:</td><td>validar usuario generar un token</td></tr>
+        <tr><td>Descripcion:</td><td>Permite autenticar a un usuario con su correo y contraseña para generar un token JWT.</td></tr>
+        <tr><td>usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/login_ws</td></tr>
+        <tr><td>Verbo Http:</td><td>Post</td></tr>
+        <tr><td>email_ws:</td><td>samboniwilson09@gmail.com</td></tr>
+        <tr><td>password_ws:</td><td>12345samboni</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTMxNDg3LCJleHAiOjE3MzQxNzQ2ODd9.BQSc_VmGXXjERhcP_Wou86G13Wfm1ebEZylW9ER1df8)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json:{
+                'email_ws': samboniwilson09@gmail.com,
+                'password_ws: 123456.'
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: "Inicio sesion exitoso" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error en el servidor" <br>
+        </td></tr>
+        
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Users</b></td></tr>
+        <tr><td>Número</td><td>2</td></tr>
+        <tr><td>Nombre:</td><td>Registrar un usuario</td></tr>
+        <tr><td>Descripcion:</td><td>Permite registrar un usuario en el sistema. Requiere un token de autenticación válido.</td></tr>
+        <tr><td>usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/users_ws</td></tr>
+        <tr><td>Verbo Http:</td><td>Post</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTMxNDg3LCJleHAiOjE3MzQxNzQ2ODd9.BQSc_VmGXXjERhcP_Wou86G13Wfm1ebEZylW9ER1df8)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json:{
+                'fullname_ws: Wilson Edaurdo Samboni',
+                'email_ws': "samboniwilson09@gmail.com",
+                'password_ws': "1234567."
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: "Registro exitoso" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error al crear" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: "usuario no creado" <br>
+        </td></tr>
+        
+    </table>
+    
+    <table class="table table-striped">
+        <tr><td><b>Clientes</b></td></tr>
+        <tr><td>Número</td><td>3</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar un cliente</td></tr>
+        <tr><td>Descripcion:</td><td>Permite actualizar la información de un cliente. Requiere un token de autenticación válido.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/cliente/:id_cliente4</td></tr>
+        <tr><td>Verbo Http:</td><td>Put</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTMxNDg3LCJleHAiOjE3MzQxNzQ2ODd9.BQSc_VmGXXjERhcP_Wou86G13Wfm1ebEZylW9ER1df8)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json:{
+                'identificacion': 1004269069,
+                'nombres':'jair samboni',
+                'direccion':'cra 5 #1-2 Bogota',
+                'telefono':'3112290158',
+                'fecha_nacimiento': '2002-06-21'
+                'password':'12345henry'
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: "Actualizacion exitosa" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error al actualizar" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: "usuario no actualizado" <br>
+        </td></tr>
+        
+    </table>
+
+    
+    <table class="table table-striped">
+        <tr><td><b>Clientes</b></td></tr>
+        <tr><td>Número</td><td>4</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar un cliente</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para eliminar cliente con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/cliente/:id_cliente</td></tr>
+        <tr><td>Verbo Http:</td><td>delete</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json:{
+                "msg": "cliente eliminado con exito",
+                "result": {
+                    "fieldCount": 0,
+                    "affectedRows": 1,
+                    "insertId": 0,
+                    "info": "",
+                    "serverStatus": 2,
+                    "warningStatus": 0,
+                    "changedRows": 0
+                }
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: "Cliente eliminado con exito" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error al eliminar" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: "cliente no eliminado" <br>
+        </td></tr>
+        
+    </table>
+
+    
+    <table class="table table-striped">
+        <tr><td><b>Clientes</b></td></tr>
+        <tr><td>Número</td><td>5</td></tr>
+        <tr><td>Nombre:</td><td>Listar todos los clientes</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para listar todos los clientes con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/cliente</td></tr>
+        <tr><td>Verbo Http:</td><td>get</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json: {
+                "id_clientes": 1,
+                "identificacion": 1081728782,
+                "nombres": "Wilson Eduardo Samboni",
+                "direccion": "vereda la palma",
+                "telefono": "3103684269",
+                "fecha_nacimiento": "2005-06-09",
+                "password": "12345samboni"
+            },
+            {
+                "id_clientes": 2,
+                "identificacion": 26572408,
+                "nombres": "Karina arteaga",
+                "direccion": "cra 5 #1-2",
+                "telefono": "3124981556",
+                "fecha_nacimiento": "2007-02-10",
+                "password": "12345karina"
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: " " <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "No se encontraron clientes en la base de datos" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: "Error al listar cliente" <br>
+        </td></tr>
+        
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Articulos</b></td></tr>
+        <tr><td>Número</td><td>6</td></tr>
+        <tr><td>Nombre:</td><td>Registrar articulos</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para registrar articulos con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/articulo</td></tr>
+        <tr><td>Verbo Http:</td><td>post</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json: {
+                "msg": "Registro exitoso",
+                "result": {
+                    "fieldCount": 0,
+                    "affectedRows": 1,
+                    "insertId": 1,
+                    "info": "",
+                    "serverStatus": 2,
+                    "warningStatus": 0,
+                    "changedRows": 0
+                }
+            }
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: " Registro exitoso" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error al crear" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: " " <br>
+        </td></tr>
+        
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Articulos</b></td></tr>
+        <tr><td>Número</td><td>7</td></tr>
+        <tr><td>Nombre:</td><td>Desactivar articulos</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para Desactivar articulos con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/articulo</td></tr>
+        <tr><td>Verbo Http:</td><td>put</td></tr>
+        <tr><td>Header: </td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
+            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
+            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
+            <br>
+            content-type:JSON
+        </td></tr>
+
+        <tr><td>Request: </td><td>Body: 
+            json: [
+            {
+                "id_articulo": 1,
+                "nombre": "MT 09 Yamaha",
+                "tipo": "vehiculo",
+                "activo": 0
+            }
+        ]
+        </td></tr>
+
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b> <br>
+            status: 200, <br>
+            message: " Actualizacion exitosa" <br>
+            <b>Error:</b> <br>
+            status: 500, <br>
+            message: "Error al actualizar" <br>
+            <b>No autorizado:</b> <br>
+            status: 401, <br>
+            message: " " <br>
+        </td></tr>
+        
+    </table>
+</body>
+</html>
