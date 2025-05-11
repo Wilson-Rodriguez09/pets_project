@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="card-actions">
           <a href='readPets_ws.html?id=${m.id_ws}'><img src='../img/btn-show.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
           <a href='updatePets_ws.html?id=${m.id_ws}'><img src='../img/btn-edit.svg' alt='btn-edit' style='width: 70%; height: 100%;'/></a>
-          <a href='verDetalles.html?id=${m.id_ws}'><img src='../img/btn-delete.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
+          <a href='#' onclick="deletePets(${m.id_ws})"><img src='../img/btn-delete.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
         </div>
       </div>
     `).join('');
@@ -31,4 +31,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     contenedor.innerHTML = '<p>Error al cargar las mascotas.</p>';
   }
 });
+
+async function deletePets(id) {
+  const confirmacion = confirm('¿Estás seguro de que quieres eliminar esta mascota?');
+  if (!confirmacion) return;
+
+  try {
+    const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`, {
+      method: 'DELETE'
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert('Mascota eliminada correctamente');
+      window.location.reload();
+    } else {
+      alert('Error al eliminar: ' + data.msg);
+    }
+  } catch (error) {
+    console.error('Error eliminando mascota:', error);
+    alert('Error al conectar con el servidor');
+  }
+}
 

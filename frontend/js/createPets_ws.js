@@ -107,7 +107,7 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
         if (response.ok) {
             console.log('Respuesta OK. Redirigiendo...');
             alert('Mascota registrada correctamente');
-            window.location.href = 'getPets.html';
+            window.location.href = 'getPets_ws.html';
         } else {
             alert('Error: ' + result.msg);
         }
