@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Mascotas</title>
+    <link rel="stylesheet" href="../css/createPets_ws.css">
+</head>
+<body>
+    <div class="form-container">
+
+        <div class="header">
+            <a href="getPets_ws.html">
+                <img src="../img/btn-back.svg" alt="btn-back">
+            </a>
+            <span>Adicionar Mascotas</span>
+            <a href="getPets_ws.html">
+                <img src="../img/btn-close.svg" alt="btn-close">
+            </a>
+        </div>
+
+        <div class="photo-section">
+            <img id="preview-img" src="../img/photo-lg-0.svg" alt="">
+        </div>
+
+        <div class="form-content">
+            <form id="form-mascota">
+                <input type="text" id="name_ws" name="name_ws" placeholder="Nombre" required>
+                <select name="raceId_ws" id="raceId_ws" required>
+                    <option value="" disabled selected>Selecciona una raza</option>
+                </select>
+                <select name="categoryId_ws" id="categoryId_ws" placeholder="Seleccione categoria" required>
+                    <option value="" disabled selected>Selecciona una categoria</option>
+                </select>
+                <select name="genderId_ws" id="genderId_ws" placeholder="Seleccione genero" required>
+                    <option value="" disabled selected>Selecciona un genero</option>
+                </select>
+                <select name="userId_ws" id="userId_ws" placeholder="Seleccione usuario" required>
+                    <option value="" disabled selected>Selecciona un usuario</option>
+                </select>
+                <input type="file" id="photo_ws" name="photo_ws" placeholder="Seleccione foto" />
+                <select id="estado_ws" name="estado_ws" placeholder="Seleccione estado" required>
+                    <option value="" disabled selected>Selecciona un estado</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="adoptado">Adoptado</option>
+                </select>
+                <button type="submit"><img src="../img/btn-save.svg" alt=""></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/updatePets_ws.js"></script>
+</body>
+</html>

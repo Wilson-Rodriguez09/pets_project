@@ -38,9 +38,17 @@ body, html{
 .photo-section {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
-    max-width: 100%;
-    height: auto;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#preview-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 input {
