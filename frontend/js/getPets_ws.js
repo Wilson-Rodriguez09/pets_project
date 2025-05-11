@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           <span>${m.race_ws?.name_ws || 'Sin raza'}</span>
         </div>
         <div class="card-actions">
-          <a href='verDetalles.html'><img src='../img/btn-show.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
-          <a href='verDetalles.html'><img src='../img/btn-edit.svg' alt='btn-edit' style='width: 70%; height: 100%;'/></a>
-          <a href='verDetalles.html'><img src='../img/btn-delete.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
+          <a href='readPets_ws.html?id=${m.id_ws}'><img src='../img/btn-show.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
+          <a href='verDetalles.html?id=${m.id_ws}'><img src='../img/btn-edit.svg' alt='btn-edit' style='width: 70%; height: 100%;'/></a>
+          <a href='verDetalles.html?id=${m.id_ws}'><img src='../img/btn-delete.svg' alt='btn-delete'style='width: 70%; height: 100%;'/></a>
         </div>
       </div>
     `).join('');

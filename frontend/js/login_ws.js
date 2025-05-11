@@ -21,7 +21,7 @@ document.getElementById('login-form').addEventListener('submit', async (e)=>{
 
        if (response.ok){
         localStorage.setItem('token', data.token)
-        window.location.href = '../views/getPets.html';
+        window.location.href = '../views/getPets_ws.html';
        }else {
         document.getElementById('message').textContent = data.message || 'Credenciales incorrectas';
        }
