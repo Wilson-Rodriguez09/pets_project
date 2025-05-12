@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte por Categoría</title>
+  <link rel="stylesheet" href="../css/reportePets_ws.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+  <h1>Reporte de Mascotas por Categoría</h1>
+
+  <table id="tabla-categorias">
+    <thead>
+      <tr>
+        <th>Categoría</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se insertarán las filas dinámicamente -->
+    </tbody>
+  </table>
+
+  <button onclick="descargarPDF()">Descargar PDF</button>
+
+  <script src="../js/reportePets_ws.js"></script>
+</body>
+</html>

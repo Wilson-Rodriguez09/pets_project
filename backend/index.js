@@ -7,6 +7,7 @@ import petRouter_ws from "./src/routers/petRouter_ws.js";
 import raceRouter_ws from "./src/routers/raceRouter_ws.js";
 import genderRouter_ws from "./src/routers/genderRouter_ws.js";
 import categorieRouter_ws from "./src/routers/categorieRouter_ws.js";
+import reportePetsRouter_ws from "./src/routers/reportePetsRouter_ws.js"
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -22,6 +23,7 @@ app.use(petRouter_ws);
 app.use(raceRouter_ws);
 app.use(genderRouter_ws);
 app.use(categorieRouter_ws);
+app.use(reportePetsRouter_ws);
 
 app.set('views','./src/views');
 app.set('view engine', 'ejs')

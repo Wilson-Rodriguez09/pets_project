@@ -82,11 +82,11 @@
     </table>
     
     <table class="table table-striped">
-        <tr><td><b>Clientes</b></td></tr>
+        <tr><td><b>users</b></td></tr>
         <tr><td>Número</td><td>3</td></tr>
-        <tr><td>Nombre:</td><td>Actualizar un cliente</td></tr>
-        <tr><td>Descripcion:</td><td>Permite actualizar la información de un cliente. Requiere un token de autenticación válido.</td></tr>
-        <tr><td>URL:</td><td>localhost:3000/cliente/:id_cliente4</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar un user</td></tr>
+        <tr><td>Descripcion:</td><td>Permite actualizar la información de un user. Requiere un token de autenticación válido.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/users_ws/:id_ws4</td></tr>
         <tr><td>Verbo Http:</td><td>Put</td></tr>
         <tr><td>Header: </td><td>
             Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
@@ -98,36 +98,33 @@
 
         <tr><td>Request: </td><td>Body: 
             json:{
-                'identificacion': 1004269069,
-                'nombres':'jair samboni',
-                'direccion':'cra 5 #1-2 Bogota',
-                'telefono':'3112290158',
-                'fecha_nacimiento': '2002-06-21'
-                'password':'12345henry'
+                'fullname_ws: Wilson Edaurdo Samboni',
+                'email_ws': "samboniwilson09@gmail.com",
+                'password_ws': "1234567."
             }
         </td></tr>
 
         <tr><td>Response:</td><td>
             <b>Correcto:</b> <br>
             status: 200, <br>
-            message: "Actualizacion exitosa" <br>
+            message: "User actualizado correctamente" <br>
             <b>Error:</b> <br>
             status: 500, <br>
-            message: "Error al actualizar" <br>
+            message: "Error en el servidor" <br>
             <b>No autorizado:</b> <br>
             status: 401, <br>
-            message: "usuario no actualizado" <br>
+            message: "Error al actualizar user <br>
         </td></tr>
         
     </table>
 
     
     <table class="table table-striped">
-        <tr><td><b>Clientes</b></td></tr>
+        <tr><td><b>users</b></td></tr>
         <tr><td>Número</td><td>4</td></tr>
-        <tr><td>Nombre:</td><td>Eliminar un cliente</td></tr>
-        <tr><td>Descripcion:</td><td>Endpoint para eliminar cliente con token de autenticación.</td></tr>
-        <tr><td>URL:</td><td>localhost:3000/cliente/:id_cliente</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar un user</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para eliminar users con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/user_ws/:id_ws</td></tr>
         <tr><td>Verbo Http:</td><td>delete</td></tr>
         <tr><td>Header: </td><td>
             Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
@@ -136,43 +133,24 @@
             <br>
             content-type:JSON
         </td></tr>
-
-        <tr><td>Request: </td><td>Body: 
-            json:{
-                "msg": "cliente eliminado con exito",
-                "result": {
-                    "fieldCount": 0,
-                    "affectedRows": 1,
-                    "insertId": 0,
-                    "info": "",
-                    "serverStatus": 2,
-                    "warningStatus": 0,
-                    "changedRows": 0
-                }
-            }
-        </td></tr>
-
         <tr><td>Response:</td><td>
             <b>Correcto:</b> <br>
             status: 200, <br>
-            message: "Cliente eliminado con exito" <br>
+            message: "usuario eliminado correctamente" <br>
             <b>Error:</b> <br>
             status: 500, <br>
-            message: "Error al eliminar" <br>
-            <b>No autorizado:</b> <br>
-            status: 401, <br>
-            message: "cliente no eliminado" <br>
+            message: "Error en el servidor" <br>
         </td></tr>
         
     </table>
 
     
     <table class="table table-striped">
-        <tr><td><b>Clientes</b></td></tr>
+        <tr><td><b>users</b></td></tr>
         <tr><td>Número</td><td>5</td></tr>
-        <tr><td>Nombre:</td><td>Listar todos los clientes</td></tr>
-        <tr><td>Descripcion:</td><td>Endpoint para listar todos los clientes con token de autenticación.</td></tr>
-        <tr><td>URL:</td><td>localhost:3000/cliente</td></tr>
+        <tr><td>Nombre:</td><td>Listar todos los users</td></tr>
+        <tr><td>Descripcion:</td><td>Endpoint para listar todos los users con token de autenticación.</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/users_ws</td></tr>
         <tr><td>Verbo Http:</td><td>get</td></tr>
         <tr><td>Header: </td><td>
             Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
@@ -183,122 +161,789 @@
         </td></tr>
 
         <tr><td>Request: </td><td>Body: 
-            json: {
-                "id_clientes": 1,
-                "identificacion": 1081728782,
-                "nombres": "Wilson Eduardo Samboni",
-                "direccion": "vereda la palma",
-                "telefono": "3103684269",
-                "fecha_nacimiento": "2005-06-09",
-                "password": "12345samboni"
+             json:{
+                'fullname_ws: Wilson Edaurdo Samboni',
+                'email_ws': "samboniwilson09@gmail.com",
+                'password_ws': "1234567."
             },
             {
-                "id_clientes": 2,
-                "identificacion": 26572408,
-                "nombres": "Karina arteaga",
-                "direccion": "cra 5 #1-2",
-                "telefono": "3124981556",
-                "fecha_nacimiento": "2007-02-10",
-                "password": "12345karina"
+                'fullname_ws: Karina arteaga',
+                'email_ws': "lakari@gmail.com",
+                'password_ws': "1234567."
             }
         </td></tr>
 
         <tr><td>Response:</td><td>
             <b>Correcto:</b> <br>
             status: 200, <br>
-            message: " " <br>
+            message: "
+            json:{
+                'fullname_ws: Wilson Edaurdo Samboni',
+                'email_ws': "samboniwilson09@gmail.com",
+                'password_ws': "1234567."
+            }
+            " <br>
             <b>Error:</b> <br>
             status: 500, <br>
-            message: "No se encontraron clientes en la base de datos" <br>
+            message: "Error en el servidor" <br>
             <b>No autorizado:</b> <br>
             status: 401, <br>
-            message: "Error al listar cliente" <br>
+            message: "Error al obtener usuarios" <br>
         </td></tr>
         
     </table>
 
+    <!-- Categories -->
     <table class="table table-striped">
-        <tr><td><b>Articulos</b></td></tr>
+        <tr><td><b>Categories</b></td></tr>
         <tr><td>Número</td><td>6</td></tr>
-        <tr><td>Nombre:</td><td>Registrar articulos</td></tr>
-        <tr><td>Descripcion:</td><td>Endpoint para registrar articulos con token de autenticación.</td></tr>
-        <tr><td>URL:</td><td>localhost:3000/articulo</td></tr>
-        <tr><td>Verbo Http:</td><td>post</td></tr>
-        <tr><td>Header: </td><td>
-            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
-            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
-            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
-            <br>
-            content-type:JSON
+        <tr><td>Nombre:</td><td>Listar todas las categorías</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para listar todas las categorías.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/categories_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
         </td></tr>
-
-        <tr><td>Request: </td><td>Body: 
-            json: {
-                "msg": "Registro exitoso",
-                "result": {
-                    "fieldCount": 0,
-                    "affectedRows": 1,
-                    "insertId": 1,
-                    "info": "",
-                    "serverStatus": 2,
-                    "warningStatus": 0,
-                    "changedRows": 0
-                }
-            }
-        </td></tr>
-
+        <tr><td>Request:</td><td>Ninguno</td></tr>
         <tr><td>Response:</td><td>
-            <b>Correcto:</b> <br>
-            status: 200, <br>
-            message: " Registro exitoso" <br>
-            <b>Error:</b> <br>
-            status: 500, <br>
-            message: "Error al crear" <br>
-            <b>No autorizado:</b> <br>
-            status: 401, <br>
-            message: " " <br>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>[{
+                "id_ws": 1,
+                "name_ws": "Perro"
+            }]</pre><br>
+            <b>Error:</b><br>
+            status: 400,<br>
+            message: "Error al obtener categorías"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
         </td></tr>
-        
     </table>
 
     <table class="table table-striped">
-        <tr><td><b>Articulos</b></td></tr>
+        <tr><td><b>Categories</b></td></tr>
         <tr><td>Número</td><td>7</td></tr>
-        <tr><td>Nombre:</td><td>Desactivar articulos</td></tr>
-        <tr><td>Descripcion:</td><td>Endpoint para Desactivar articulos con token de autenticación.</td></tr>
-        <tr><td>URL:</td><td>localhost:3000/articulo</td></tr>
-        <tr><td>Verbo Http:</td><td>put</td></tr>
-        <tr><td>Header: </td><td>
-            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcy
-            I6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWN
-            pbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)
-            <br>
-            content-type:JSON
+        <tr><td>Nombre:</td><td>Obtener categoría por ID</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para obtener una categoría específica por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/categories_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
         </td></tr>
-
-        <tr><td>Request: </td><td>Body: 
-            json: [
-            {
-                "id_articulo": 1,
-                "nombre": "MT 09 Yamaha",
-                "tipo": "vehiculo",
-                "activo": 0
-            }
-        ]
-        </td></tr>
-
+        <tr><td>Request:</td><td>Ninguno</td></tr>
         <tr><td>Response:</td><td>
-            <b>Correcto:</b> <br>
-            status: 200, <br>
-            message: " Actualizacion exitosa" <br>
-            <b>Error:</b> <br>
-            status: 500, <br>
-            message: "Error al actualizar" <br>
-            <b>No autorizado:</b> <br>
-            status: 401, <br>
-            message: " " <br>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "id_ws": 1,
+                "name_ws": "Perro"
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al obtener categoría"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
         </td></tr>
-        
     </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Categories</b></td></tr>
+        <tr><td>Número</td><td>8</td></tr>
+        <tr><td>Nombre:</td><td>Crear categoría</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para registrar una nueva categoría.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/categories_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>POST</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Perro"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Categoría registrada correctamente",
+                "categorie": {
+                    "id_ws": 1,
+                    "name_ws": "Perro"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al registrar categoría"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Categories</b></td></tr>
+        <tr><td>Número</td><td>9</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar categoría</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para actualizar una categoría existente.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/categories_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>PUT</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Gato"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Categoría actualizada correctamente",
+                "categorie": {
+                    "id_ws": 1,
+                    "name_ws": "Gato"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al actualizar categoría"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Categories</b></td></tr>
+        <tr><td>Número</td><td>10</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar categoría</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para eliminar una categoría por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/categories_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>DELETE</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJexHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: "Categoría eliminada correctamente"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <!-- Genders -->
+    <table class="table table-striped">
+        <tr><td><b>Genders</b></td></tr>
+        <tr><td>Número</td><td>11</td></tr>
+        <tr><td>Nombre:</td><td>Listar todos los géneros</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para listar todos los géneros.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/genders_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>[{
+                "id_ws": 1,
+                "name_ws": "Macho"
+            }]</pre><br>
+            <b>Error:</b><br>
+            status: 400,<br>
+            message: "Error al obtener géneros"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Genders</b></td></tr>
+        <tr><td>Número</td><td>12</td></tr>
+        <tr><td>Nombre:</td><td>Obtener género por ID</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para obtener un género específico por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/genders_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "id_ws": 1,
+                "name_ws": "Macho"
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al obtener género"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Genders</b></td></tr>
+        <tr><td>Número</td><td>13</td></tr>
+        <tr><td>Nombre:</td><td>Crear género</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para registrar un nuevo género.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/genders_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>POST</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Macho"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Género registrado correctamente",
+                "gender": {
+                    "id_ws": 1,
+                    "name_ws": "Macho"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al registrar género"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Genders</b></td></tr>
+        <tr><td>Número</td><td>14</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar género</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para actualizar un género existente.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/genders_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>PUT</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Hembra"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Género actualizado correctamente",
+                "gender": {
+                    "id_ws": 1,
+                    "name_ws": "Hembra"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al actualizar género"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Genders</b></td></tr>
+        <tr><td>Número</td><td>15</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar género</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para eliminar un género por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/genders_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>DELETE</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: "Género eliminado correctamente"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <!-- Pets -->
+    <table class="table table-striped">
+        <tr><td><b>Pets</b></td></tr>
+        <tr><td>Número</td><td>16</td></tr>
+        <tr><td>Nombre:</td><td>Listar todas las mascotas</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para listar todas las mascotas con sus relaciones (raza, categoría, género, usuario).</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/pets_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>[{
+                "id_ws": 1,
+                "name_ws": "Firulais",
+                "photo_ws": "photo-sm-3.svg",
+                "estado_ws": "disponible",
+                "raceId_ws": 1,
+                "categoryId_ws": 1,
+                "genderId_ws": 1,
+                "userId_ws": 1,
+                "race_ws": { "id_ws": 1, "name_ws": "Labrador" },
+                "category_ws": { "id_ws": 1, "name_ws": "Perro" },
+                "gender_ws": { "id_ws": 1, "name_ws": "Macho" },
+                "user_ws": { "id_ws": 1, "fullname_ws": "Wilson Eduardo Samboni" }
+            }]</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al obtener las mascotas"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Pets</b></td></tr>
+        <tr><td>Número</td><td>17</td></tr>
+        <tr><td>Nombre:</td><td>Obtener mascota por ID</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para obtener una mascota específica por su ID con sus relaciones.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/pets_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "id_ws": 1,
+                "name_ws": "Firulais",
+                "photo_ws": "photo-sm-3.svg",
+                "estado_ws": "disponible",
+                "raceId_ws": 1,
+                "categoryId_ws": 1,
+                "genderId_ws": 1,
+                "userId_ws": 1,
+                "race_ws": { "id_ws": 1, "name_ws": "Labrador" },
+                "category_ws": { "id_ws": 1, "name_ws": "Perro" },
+                "gender_ws": { "id_ws": 1, "name_ws": "Macho" },
+                "user_ws": { "id_ws": 1, "fullname_ws": "Wilson Eduardo Samboni" }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al obtener mascota"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Pets</b></td></tr>
+        <tr><td>Número</td><td>18</td></tr>
+        <tr><td>Nombre:</td><td>Crear mascota</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para registrar una nueva mascota con una imagen.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/pets_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>POST</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJle CarneyiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: multipart/form-data
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Firulais",
+                "raceId_ws": 1,
+                "estado_ws": "disponible",
+                "categoryId_ws": 1,
+                "genderId_ws": 1,
+                "userId_ws": 1
+            }</pre>
+            Form-data: photo_ws (file: "photo-sm-3.svg")
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Pet registrado correctamente",
+                "pet": {
+                    "id_ws": 1,
+                    "name_ws": "Firulais",
+                    "photo_ws": "photo-sm-3.svg",
+                    "estado_ws": "disponible",
+                    "raceId_ws": 1,
+                    "categoryId_ws": 1,
+                    "genderId_ws": 1,
+                    "userId_ws": 1
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 400,<br>
+            message: "Imagen obligatoria" or "IDs inválidos"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Pets</b></td></tr>
+        <tr><td>Número</td><td>19</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar mascota</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para actualizar una mascota existente, con opción de actualizar la imagen.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/pets_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>PUT</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: multipart/form-data
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Firulais",
+                "raceId_ws": 1,
+                "estado_ws": "disponible",
+                "categoryId_ws": 1,
+                "genderId_ws": 1,
+                "userId_ws": 1
+            }</pre>
+            Form-data: photo_ws (file: "photo-sm-3.svg", opcional)
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Pet actualizado correctamente",
+                "pet": {
+                    "id_ws": 1,
+                    "name_ws": "Firulais",
+                    "photo_ws": "photo-sm-3.svg",
+                    "estado_ws": "disponible",
+                    "raceId_ws": 1,
+                    "categoryId_ws": 1,
+                    "genderId_ws": 1,
+                    "userId_ws": 1
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al actualizar pet"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Pets</b></td></tr>
+        <tr><td>Número</td><td>20</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar mascota</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para eliminar una mascota por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/pets_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>DELETE</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: "Pet eliminado correctamente"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <!-- Races -->
+    <table class="table table-striped">
+        <tr><td><b>Races</b></td></tr>
+        <tr><td>Número</td><td>21</td></tr>
+        <tr><td>Nombre:</td><td>Listar todas las razas</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para listar todas las razas.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/races_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>[{
+                "id_ws": 1,
+                "name_ws": "Labrador"
+            }]</pre><br>
+            <b>Error:</b><br>
+            status: 400,<br>
+            message: "Error al obtener razas"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Races</b></td></tr>
+        <tr><td>Número</td><td>22</td></tr>
+        <tr><td>Nombre:</td><td>Obtener raza por ID</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para obtener una raza específica por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/races_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "id_ws": 1,
+                "name_ws": "Labrador"
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al obtener raza"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Races</b></td></tr>
+        <tr><td>Número</td><td>23</td></tr>
+        <tr><td>Nombre:</td><td>Crear raza</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para registrar una nueva raza.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/races_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>POST</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td28Czmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Labrador"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Raza registrada correctamente",
+                "race": {
+                    "id_ws": 1,
+                    "name_ws": "Labrador"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al registrar raza"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Races</b></td></tr>
+        <tr><td>Número</td><td>24</td></tr>
+        <tr><td>Nombre:</td><td>Actualizar raza</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para actualizar una raza existente.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/races_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>PUT</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Body:
+            <pre>{
+                "name_ws": "Golden Retriever"
+            }</pre>
+        </td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>{
+                "msg": "Raza actualizada correctamente",
+                "race": {
+                    "id_ws": 1,
+                    "name_ws": "Golden Retriever"
+                }
+            }</pre><br>
+            <b>Error:</b><br>
+            status: 404,<br>
+            message: "Error al actualizar raza"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <table class="table table-striped">
+        <tr><td><b>Races</b></td></tr>
+        <tr><td>Número</td><td>25</td></tr>
+        <tr><td>Nombre:</td><td>Eliminar raza</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para eliminar una raza por su ID.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/races_ws/:id_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>DELETE</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: "Raza eliminada correctamente"<br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error en el servidor"
+        </td></tr>
+    </table>
+
+    <!-- Report -->
+    <table class="table table-striped">
+        <tr><td><b>Report</b></td></tr>
+        <tr><td>Número</td><td>26</td></tr>
+        <tr><td>Nombre:</td><td>Conteo de mascotas por categoría</td></tr>
+        <tr><td>Descripción:</td><td>Endpoint para obtener un reporte del número de mascotas por categoría.</td></tr>
+        <tr><td>Usuario:</td><td>Administrador</td></tr>
+        <tr><td>URL:</td><td>localhost:3000/countPetCategory_ws</td></tr>
+        <tr><td>Verbo HTTP:</td><td>GET</td></tr>
+        <tr><td>Header:</td><td>
+            Authorization Bearer (eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjpbeyJpZGVudGlmaWNhY2lvbiI6MTA4MTcyODc4Miwibm9tYnJlcyI6IldpbHNvbiBFZHVhcmRvIFNhbWJvbmkiLCJkaXJlY2Npb24iOiJ2ZXJlZGEgbGEgcGFsbWEiLCJ0ZWxlZm9ubyI6IjMxMDM2ODQyNjkiLCJmZWNoYV9uYWNpbWllbnRvIjoiMjAwNS0wNi0wOSJ9XSwiaWF0IjoxNzM0MTQwODM0LCJleHAiOjE3MzQxODQwMzR9.P-t8gCzmv5Z3CrZLy8WRMowH0eIpQg2ilVAzjRwg4ks)<br>
+            content-type: application/json
+        </td></tr>
+        <tr><td>Request:</td><td>Ninguno</td></tr>
+        <tr><td>Response:</td><td>
+            <b>Correcto:</b><br>
+            status: 200,<br>
+            message: <pre>[{
+                "categoria": "Perro",
+                "cantidad": 10
+            }, {
+                "categoria": "Gato",
+                "cantidad": 5
+            }]</pre><br>
+            <b>Error servidor:</b><br>
+            status: 500,<br>
+            message: "Error al generar reporte"
+        </td></tr>
+    </table>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+
+        h1.text-center {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .table.table-striped {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table.table-striped td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .table.table-striped tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table.table-striped tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .table.table-striped b {
+            color: #2c3e50;
+        }
+
+        .table.table-striped pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        .table.table-striped td:first-child {
+            font-weight: bold;
+            background-color: #e8ecef;
+            width: 20%;
+        }
+    </style>
 </body>
 </html>
