@@ -1,6 +1,12 @@
 async function generarGrafico() {
+
+  const token = localStorage.getItem('token')
   try {
-    const response = await fetch('http://192.168.88.102:3000/reportePets_ws');
+    const response = await fetch('http://192.168.88.102:3000/reportePets_ws',{
+      headers: {
+                'Authorization': `Bearer ${token}`
+            },
+    });
     const data = await response.json();
     console.log('Datos recibidos del backend:', data);
     const categorias = data.map(d => d.categoria);

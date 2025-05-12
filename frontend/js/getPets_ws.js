@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const contenedor = document.getElementById('lista-mascotas');
 
+  const token = localStorage.getItem('token');
+
   try {
-    const res = await fetch('http://192.168.88.102:3000/pets_ws');
+    const res = await fetch('http://192.168.88.102:3000/pets_ws', {
+      headers: {
+                'Authorization': `Bearer ${token}`
+            },
+    });
+  
     const mascotas = await res.json();
 
     if (!Array.isArray(mascotas) || mascotas.length === 0) {
@@ -38,7 +45,10 @@ async function deletePets(id) {
 
   try {
     const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+                'Authorization': `Bearer ${token}`
+            },
     });
 
     const data = await res.json();

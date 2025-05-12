@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     const contenedor = document.getElementById('detalle-mascota');
     const param = new URLSearchParams(window.location.search);
     const id = param.get('id');
+    const token = localStorage.getItem('token')
 
     if(!id){
         contenedor.innerHTML = '<p>ID no espesificado</p>';
@@ -9,7 +10,11 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     }
 
      try {
-        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`)
+        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`,{
+          headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
         if(!res.ok) throw new Error("Pet no encontrado");
         const m = await res.json();
 

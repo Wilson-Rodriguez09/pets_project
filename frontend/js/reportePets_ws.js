@@ -1,6 +1,11 @@
 window.onload = async () => {
+  const token = localStorage.getItem('token')
   try {
-    const res = await fetch('http://192.168.88.102:3000/reportePets_ws'); 
+    const res = await fetch('http://192.168.88.102:3000/reportePets_ws', {
+      headers: {
+                'Authorization': `Bearer ${token}`
+            },
+    }); 
     const data = await res.json();
     cargarTabla(data);
   } catch (err) {

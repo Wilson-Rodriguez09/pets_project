@@ -62,9 +62,11 @@ body, html{
 }
 
 .photo img{
-    height: 30%;
-    width: 30%;
+    height: 150px;
+    width: 150px;
     max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .list-content {

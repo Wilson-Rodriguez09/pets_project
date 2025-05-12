@@ -1,9 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 const petId = params.get('id');
+const token = localStorage.getItem('token')
 
 async function loadOptions() {
     try {
-        const racesRes = await fetch('http://192.168.88.102:3000/races_ws');
+        const racesRes = await fetch('http://192.168.88.102:3000/races_ws', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
         const races = await racesRes.json();
         const raceSelect = document.getElementById('raceId_ws');
         races.forEach(race => {
@@ -13,7 +18,11 @@ async function loadOptions() {
             raceSelect.appendChild(option);
         });
 
-        const categoriesRes = await fetch('http://192.168.88.102:3000/categories_ws');
+        const categoriesRes = await fetch('http://192.168.88.102:3000/categories_ws', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
         const categories = await categoriesRes.json();
         const categorySelect = document.getElementById('categoryId_ws');
         categories.forEach(category => {
@@ -23,7 +32,11 @@ async function loadOptions() {
             categorySelect.appendChild(option);
         });
 
-        const gendersRes = await fetch('http://192.168.88.102:3000/genders_ws');
+        const gendersRes = await fetch('http://192.168.88.102:3000/genders_ws', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
         const genders = await gendersRes.json();
         const genderSelect = document.getElementById('genderId_ws');
         genders.forEach(gender => {
@@ -34,7 +47,11 @@ async function loadOptions() {
             console.log(`Género: value=${option.value}, text=${option.textContent}`);
         });
 
-        const usersRes = await fetch('http://192.168.88.102:3000/users_ws');
+        const usersRes = await fetch('http://192.168.88.102:3000/users_ws', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
         const users = await usersRes.json();
         const userSelect = document.getElementById('userId_ws');
         users.forEach(user => {
@@ -50,7 +67,11 @@ async function loadOptions() {
 
 async function loadPetData(id) {
     try {
-        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`);
+        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`,{
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        });
         const pet = await res.json();
 
         document.getElementById('name_ws').value = pet.name_ws;

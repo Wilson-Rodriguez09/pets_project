@@ -4,10 +4,10 @@ import { createCategorie_ws, deleteCategorieId_ws, getCategorie_ws, getCategorie
 
 const router_ws = Router();
 
-router_ws.get("/categories_ws",getCategorie_ws);
-router_ws.get("/categories_ws/:id_ws",getCategorieId_ws);
-router_ws.post("/categories_ws",createCategorie_ws);
-router_ws.put("/categories_ws/:id_ws",updateCategorieId_ws);
-router_ws.delete("/categories_ws/:id_ws",deleteCategorieId_ws);
+router_ws.get("/categories_ws",validarToken_ws,getCategorie_ws);
+router_ws.get("/categories_ws/:id_ws",validarToken_ws,getCategorieId_ws);
+router_ws.post("/categories_ws",validarToken_ws,createCategorie_ws);
+router_ws.put("/categories_ws/:id_ws",validarToken_ws,updateCategorieId_ws);
+router_ws.delete("/categories_ws/:id_ws",validarToken_ws,deleteCategorieId_ws);
 
 export default router_ws;
