@@ -98,29 +98,42 @@ import multer from 'multer';
     }
   };
 
- export const updatePetId_ws = async (req, res)=>{
-    try{
-        const id_ws = parseInt(req.params.id_ws);
-        const {name_ws, raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws} = req.body;
-        let updateData = {name_ws, raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws };
-        if (req.file) {
-            updateData.photo_ws = req.file.filename;
-          }        
-        const pets_ws = await prisma.pets_ws.update({
-          where: { id_ws:id_ws }, 
-          data: updateData,
-        });
+ export const updatePetId_ws = async (req, res) => {
+  try {
+    const id_ws = parseInt(req.params.id_ws);
+    const {
+      name_ws,
+      raceId_ws,
+      estado_ws,
+      categoryId_ws,
+      genderId_ws,
+      userId_ws
+    } = req.body;
 
-        if(pets_ws){
-            res.status(200).json({msg: "Pet actualizado correctamente", pet: pets_ws})
-        }else{
-            res.status(404).json({msg: "Error al actulizar pet"})
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: "Error en el servidor" });
-    } 
- }
+    const updateData = {
+      name_ws,
+      raceId_ws: parseInt(raceId_ws),
+      estado_ws,
+      categoryId_ws: parseInt(categoryId_ws),
+      genderId_ws: parseInt(genderId_ws),
+      userId_ws: parseInt(userId_ws),
+    };
+
+    if (req.file) {
+      updateData.photo_ws = req.file.filename;
+    }
+
+    const pets_ws = await prisma.pets_ws.update({
+      where: { id_ws },
+      data: updateData,
+    });
+
+    res.status(200).json({ msg: "Pet actualizado correctamente", pet: pets_ws });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Error en el servidor" });
+  }
+};
 
  export const deletePetId_ws = async (req, res) =>{
     try{

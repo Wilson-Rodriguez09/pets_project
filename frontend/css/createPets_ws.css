@@ -87,4 +87,5 @@ select {
 button {
     border: none;
     background-color: #003055;
+    padding: 5%;
 }

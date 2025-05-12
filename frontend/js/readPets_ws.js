@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
     }
 
      try {
-        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`,{
+        const res = await fetch(`http://10.4.20.64:3000/pets_ws/${id}`,{
           headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 
         contenedor.innerHTML = `
         <div class='photo'>
-        <img src="http://192.168.88.102:3000/public/img/${m.photo_ws}" alt="Mascota" />
+        <img src="http://10.4.20.64:3000/public/img/${m.photo_ws}" alt="Mascota" />
         </div>
         <div class='list-content'>
           <div class="campo">

@@ -5,7 +5,7 @@ document.getElementById('login-form').addEventListener('submit', async (e)=>{
     const password_ws = document.getElementById('password_ws');
 
     try{
-        const response = await fetch('http://192.168.88.102:3000/login_ws',{
+        const response = await fetch('http://10.4.20.64:3000/login_ws',{
 
             method: 'POST',
             headers: {

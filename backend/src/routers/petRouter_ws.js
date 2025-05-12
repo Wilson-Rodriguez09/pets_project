@@ -9,6 +9,6 @@ router_ws.post("/pets_ws",validarToken_ws,CargarImg,createPet_ws);
 router_ws.get("/pets_ws",validarToken_ws,getPet_ws);
 router_ws.get("/pets_ws/:id_ws",validarToken_ws, getPetId_ws);
 router_ws.put("/pets_Ws/:id_ws",validarToken_ws,CargarImg,updatePetId_ws);
-router_ws.delete("/pets_ws/:id_ws",validarToken_ws, deletePetId_ws);
+router_ws.delete("/pets_ws/:id_ws", deletePetId_ws);
 
 export default router_ws;

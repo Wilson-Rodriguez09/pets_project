@@ -32,9 +32,9 @@ app.get('/documentation_ws',(req,res)=>{
     res.render('documentation_ws.ejs')});
 
 app.listen(3000, '0.0.0.0',()=>{
-    console.log("Servidor corriendo en el puerto 3000 url http://10.4.20.224:3000");
+    console.log("Servidor corriendo en el puerto 3000 url http://10.4.20.64:3000");
 
     console.log(
-        `Version 1 de documentacion nativa dsiponible en url http://localhost:3000/documentation_ws`
+        `Version 1 de documentacion nativa dsiponible en url http://10.4.20.64:3000/documentation_ws`
     )
 });

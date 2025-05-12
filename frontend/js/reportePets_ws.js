@@ -1,7 +1,7 @@
 window.onload = async () => {
   const token = localStorage.getItem('token')
   try {
-    const res = await fetch('http://192.168.88.102:3000/reportePets_ws', {
+    const res = await fetch('http://10.4.20.64:3000/reportePets_ws', {
       headers: {
                 'Authorization': `Bearer ${token}`
             },
