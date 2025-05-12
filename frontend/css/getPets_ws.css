@@ -116,5 +116,18 @@ button {
 }
 
 .reporte {
-  padding: 5%;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.btn-report{
+  padding: 10%;
 }
