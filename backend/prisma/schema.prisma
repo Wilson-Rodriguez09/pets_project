@@ -30,6 +30,8 @@ model Pets_ws {
   categoryId_ws Int
   genderId_ws Int
   userId_ws Int
+  latitud_ws Float?
+  longitud_ws Float?
 
   race_ws Races_ws @relation(fields: [raceId_ws], references: [id_ws])
   category_ws Categories_ws @relation(fields: [categoryId_ws], references: [id_ws])

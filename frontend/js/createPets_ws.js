@@ -3,7 +3,7 @@ async function loadOptions() {
     const token = localStorage.getItem('token');
 
     try {
-        const racesRes = await fetch('http://10.4.20.64:3000/races_ws', {
+        const racesRes = await fetch('http://192.168.101.12:3000/races_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
         },
@@ -17,7 +17,7 @@ async function loadOptions() {
             raceSelect.appendChild(option);
         });
 
-        const categoriesRes = await fetch('http://10.4.20.64:3000/categories_ws', {
+        const categoriesRes = await fetch('http://192.168.101.12:3000/categories_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
         },
@@ -31,7 +31,7 @@ async function loadOptions() {
             categorySelect.appendChild(option);
         });
 
-        const gendersRes = await fetch('http://10.4.20.64:3000/genders_ws', {
+        const gendersRes = await fetch('http://192.168.101.12:3000/genders_ws', {
            headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -46,7 +46,7 @@ async function loadOptions() {
             console.log(`Género: value=${option.value}, text=${option.textContent}`);
         });
 
-        const usersRes = await fetch('http://10.4.20.64:3000/users_ws', {
+        const usersRes = await fetch('http://192.168.101.12:3000/users_ws', {
            headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -78,7 +78,8 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
     const userId_ws = document.getElementById('userId_ws').value;
     const estado_ws = document.getElementById('estado_ws').value.trim();
     const photo_ws = document.getElementById('photo_ws').files[0];
-
+    const latitud_ws = document.getElementById('latitud_ws').value.trim();
+    const longitud_ws = document.getElementById('longitud_ws').value.trim();
     if (!name_ws) {
         alert('Por favor, ingrese el nombre de la mascota');
         return;
@@ -107,6 +108,14 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
         alert('Por favor, seleccione una imagen');
         return;
     }
+    if (isNaN(parseFloat(latitud_ws))) {
+    alert('La latitud debe ser un número válido');
+    return;
+    }
+    if (isNaN(parseFloat(longitud_ws))) {
+        alert('La longitud debe ser un número válido');
+        return;
+    }
 
     const formData = new FormData();
     formData.append('name_ws', name_ws);
@@ -116,10 +125,13 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
     formData.append('userId_ws', userId_ws);
     formData.append('estado_ws', estado_ws);
     formData.append('photo_ws', photo_ws);
+    formData.append('latitud_ws', latitud_ws);
+    formData.append('longitud_ws', longitud_ws);
+
 
 
     try {
-        const response = await fetch('http://10.4.20.64:3000/pets_ws', {    
+        const response = await fetch('http://192.168.101.12:3000/pets_ws', {    
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`

@@ -124,10 +124,22 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: block;
-  margin: auto;
 }
 
 .btn-report{
-  padding: 10%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+}
+
+.mapa {
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

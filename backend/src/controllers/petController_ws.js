@@ -62,7 +62,7 @@ import multer from 'multer';
 
  export const createPet_ws = async (req, res) => {
     try {
-      const {name_ws,  raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws } = req.body;
+      const {name_ws,  raceId_ws, estado_ws, categoryId_ws, genderId_ws, userId_ws, latitud_ws, longitud_ws } = req.body;
   
       if (!req.file) {
         return res.status(400).json({ msg: "Imagen obligatoria" });
@@ -73,7 +73,7 @@ import multer from 'multer';
       const genderId = Number(genderId_ws);
       const userId = Number(userId_ws);
   
-      if ([raceId, categoryId, genderId, userId].some(isNaN)){
+      if ([raceId, categoryId, genderId, userId ].some(isNaN)){
         return res.status(400).json({ msg: "IDs inválidos" });
       }
   
@@ -87,7 +87,9 @@ import multer from 'multer';
           categoryId_ws: categoryId,
           genderId_ws: genderId,
           userId_ws: userId,
-          photo_ws
+          photo_ws,
+          latitud_ws: latitud_ws ? parseFloat(latitud_ws) : null,
+          longitud_ws: longitud_ws ? parseFloat(longitud_ws) : null,
         },
       });
   
@@ -107,7 +109,9 @@ import multer from 'multer';
       estado_ws,
       categoryId_ws,
       genderId_ws,
-      userId_ws
+      userId_ws,
+      latitud_ws,
+      longitud_ws
     } = req.body;
 
     const updateData = {
@@ -117,6 +121,8 @@ import multer from 'multer';
       categoryId_ws: parseInt(categoryId_ws),
       genderId_ws: parseInt(genderId_ws),
       userId_ws: parseInt(userId_ws),
+      latitud_ws: latitud_ws ? parseFloat(latitud_ws) : null,
+      longitud_ws: longitud_ws ? parseFloat(longitud_ws) : null,
     };
 
     if (req.file) {
