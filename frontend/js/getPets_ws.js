@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('token');
 
   try {
-    const res = await fetch('http://192.168.101.12:3000/pets_ws', {
+    const res = await fetch('http://192.168.88.102:3000/pets_ws', {
       headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const tarjetas = mascotas.map(m => `
       <div class="card">
-        <img src="http://192.168.101.12:3000/public/img/${m.photo_ws}" alt="Mascota" />
+        <img src="http://192.168.88.102:3000/public/img/${m.photo_ws}" alt="Mascota" />
         <div class="card-info">
           <h4>${m.name_ws}</h4>
           <span>${m.race_ws?.name_ws || 'Sin raza'}</span>
@@ -44,7 +44,7 @@ async function deletePets(id) {
   if (!confirmacion) return;
 
   try {
-    const res = await fetch(`http://192.168.101.12:3000/pets_ws/${id}`, {
+    const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`, {
       method: 'DELETE',
     });
 

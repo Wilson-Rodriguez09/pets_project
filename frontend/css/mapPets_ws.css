@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body, html{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: #003055;
+}
+
+.map-container {
+    background-color: #003055;
+    height: 100vh;
+    width: 50vh;
+    border-radius: 3%;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5%;
+}
+
+.header img{
+    max-width: 100%;
+    height: auto;
+}
+
+.header span{
+    color: rgb(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.mapa{
+    display: flex;
+    align-content: end;
+}

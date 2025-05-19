@@ -1,4 +1,4 @@
-const API_URL = "http://192.168.101.12:3000";
+const API_URL = "http://192.168.88.102:3000";
 
 function getAuthHeaders() {
   const token = localStorage.getItem("token");
@@ -35,7 +35,7 @@ async function loadPetsMap() {
             Categoría: ${pet.category_ws?.name_ws || "Sin categoría"}<br>
             Género: ${pet.gender_ws?.name_ws || "Sin género"}<br>
             Estado: ${pet.estado_ws || "Sin estado"}<br>
-            <a href="vermascota.html?id=${pet.id_ws}">Ver detalles</a>
+            <a href="readPets_ws.html?id=${pet.id_ws}">Ver detalles</a>
           `);
       });
 

@@ -4,7 +4,7 @@ const token = localStorage.getItem('token')
 
 async function loadOptions() {
     try {
-        const racesRes = await fetch('http://192.168.101.12:3000/races_ws', {
+        const racesRes = await fetch('http://192.168.88.102:3000/races_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -18,7 +18,7 @@ async function loadOptions() {
             raceSelect.appendChild(option);
         });
 
-        const categoriesRes = await fetch('http://192.168.101.12:3000/categories_ws', {
+        const categoriesRes = await fetch('http://192.168.88.102:3000/categories_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -32,7 +32,7 @@ async function loadOptions() {
             categorySelect.appendChild(option);
         });
 
-        const gendersRes = await fetch('http://192.168.101.12:3000/genders_ws', {
+        const gendersRes = await fetch('http://192.168.88.102:3000/genders_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -47,7 +47,7 @@ async function loadOptions() {
             console.log(`Género: value=${option.value}, text=${option.textContent}`);
         });
 
-        const usersRes = await fetch('http://192.168.101.12:3000/users_ws', {
+        const usersRes = await fetch('http://192.168.88.102:3000/users_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -67,7 +67,7 @@ async function loadOptions() {
 
 async function loadPetData(id) {
     try {
-        const res = await fetch(`http://192.168.101.12:3000/pets_ws/${id}`,{
+        const res = await fetch(`http://192.168.88.102:3000/pets_ws/${id}`,{
             headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -151,8 +151,8 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
     formData.append('longitud_ws', longitud_ws);
 
     const url = petId 
-        ? `http://192.168.101.12:3000/pets_ws/${petId}`
-        : 'http://192.168.101.12:3000/pets_ws';
+        ? `http://192.168.88.102:3000/pets_ws/${petId}`
+        : 'http://192.168.88.102:3000/pets_ws';
 
     const method = petId ? 'PUT' : 'POST';
 

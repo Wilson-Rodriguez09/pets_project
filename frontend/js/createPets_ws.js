@@ -3,7 +3,7 @@ async function loadOptions() {
     const token = localStorage.getItem('token');
 
     try {
-        const racesRes = await fetch('http://192.168.101.12:3000/races_ws', {
+        const racesRes = await fetch('http://192.168.88.102:3000/races_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
         },
@@ -17,7 +17,7 @@ async function loadOptions() {
             raceSelect.appendChild(option);
         });
 
-        const categoriesRes = await fetch('http://192.168.101.12:3000/categories_ws', {
+        const categoriesRes = await fetch('http://192.168.88.102:3000/categories_ws', {
             headers: {
                 'Authorization': `Bearer ${token}`
         },
@@ -31,7 +31,7 @@ async function loadOptions() {
             categorySelect.appendChild(option);
         });
 
-        const gendersRes = await fetch('http://192.168.101.12:3000/genders_ws', {
+        const gendersRes = await fetch('http://192.168.88.102:3000/genders_ws', {
            headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -46,7 +46,7 @@ async function loadOptions() {
             console.log(`Género: value=${option.value}, text=${option.textContent}`);
         });
 
-        const usersRes = await fetch('http://192.168.101.12:3000/users_ws', {
+        const usersRes = await fetch('http://192.168.88.102:3000/users_ws', {
            headers: {
                 'Authorization': `Bearer ${token}`
             },
@@ -131,7 +131,7 @@ document.getElementById('form-mascota').addEventListener('submit', async functio
 
 
     try {
-        const response = await fetch('http://192.168.101.12:3000/pets_ws', {    
+        const response = await fetch('http://192.168.88.102:3000/pets_ws', {    
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
